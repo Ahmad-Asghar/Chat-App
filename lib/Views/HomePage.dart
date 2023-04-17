@@ -107,6 +107,7 @@ QuerySnapshot chatroomsnapshot=snapshot.data as QuerySnapshot;
                         targetuser: targetuser));
                   },
                   leading: CircleAvatar(
+                    backgroundColor: Colors.white,
                     backgroundImage: NetworkImage(
                         targetuser.profilepic.toString()
                     ),

@@ -34,7 +34,20 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
 
 TextEditingController messegecontroller=TextEditingController();
   Snackbar snack=Get.put(Snackbar());
+final ScrollController _scrollController = ScrollController();
 
+@override
+void dispose() {
+  _scrollController.dispose();
+  super.dispose();
+}
+void _scrollToBottom() {
+  _scrollController.animateTo(
+    _scrollController.position.maxScrollExtent,
+    duration: Duration(milliseconds: 500),
+    curve: Curves.ease,
+  );
+}
  void sendMessege() async {
    String msg=messegecontroller.text.toString();
    messegecontroller.clear();
@@ -115,6 +128,7 @@ SizedBox(width: 2.w,),
                               QuerySnapshot datasnapshot=snapshot.data as QuerySnapshot;
 
                              return ListView.builder(
+                         controller: _scrollController,
                                itemCount: datasnapshot.docs.length,
                                  itemBuilder: (context,index){
                                 MessegeModel currentmsg= MessegeModel.fromMap(datasnapshot.docs[index].data() as Map<String,dynamic>);

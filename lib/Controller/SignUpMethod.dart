@@ -1,6 +1,3 @@
-
-
-
 import 'package:chat_app/Views/HomePage.dart';
 import 'package:chat_app/Widgets/Snackbar.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +12,7 @@ import '../Views/CompleteProfilePage.dart';
 class SignUpMethod extends GetxController{
 
   Snackbar snack=Get.put(Snackbar());
-
+//hjhhb
   SignUp( String emailcontroller,String passwordcontroller) async {
 
 UserCredential? credential;
